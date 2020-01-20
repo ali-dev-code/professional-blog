@@ -8,11 +8,11 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>TheSaaS — Blog with sidebar</title>
+    <title>Code The Blog</title>
 
     <!-- Styles -->
-    <link href="assets/css/page.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="/codeBlog/assets/css/page.min.css" rel="stylesheet">
+    <link href="/codeBlog/assets/css/style.css" rel="stylesheet">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -28,7 +28,7 @@
 
         <div class="navbar-left">
           <button class="navbar-toggler" type="button">&#9776;</button>
-          <a class="navbar-brand text-white  font-weight-bold " href="index.php">
+          <a class="navbar-brand text-white  font-weight-bold " href="/codeBlog/index">
            CODE THE WEB
           </a>
         </div>
@@ -47,7 +47,7 @@
               while ($row = fetch_array($result)) {
                 $catName = $row['cat_name'];
               ?>
-                <a class="nav-link" href="category.php?category=<?php echo $row['cat_id']; ?>"><?php echo $catName; ?></a>
+                <a class="nav-link" href="/codeBlog/category/<?php echo $row['cat_id']; ?>"><?php echo $catName; ?></a>
 
               <?php } ?>
 

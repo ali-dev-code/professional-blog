@@ -120,7 +120,7 @@ function add_comment()
 
           if ($execute) {
            $_SESSION['success'] = "Comment has been submited successfully";
-           Redirect_to("show-post.php?p_id={$post_id_from_url}");
+           Redirect_to("post.php?p_id={$post_id_from_url}");
           }
         }
     }

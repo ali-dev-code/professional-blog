@@ -29,7 +29,7 @@
                   ?>
               <div class="col-md-6">
                 <div class="card border hover-shadow-6 mb-6 d-block">
-                  <a href="show-post.php?p_id=<?php echo $row['post_id']; ?>"><img class="card-img-top" src="assets/img/thumb/<?php echo $row['post_image']; ?>" alt="Card image cap"></a>
+                  <a href="post.php?p_id=<?php echo $row['post_id']; ?>"><img class="card-img-top" src="/codeBlog/assets/img/thumb/<?php echo $row['post_image']; ?>" alt="Card image cap"></a>
                   <div class="p-6 text-center">
 
                     <?php
@@ -45,7 +45,7 @@
 
 
                     <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#"><?php echo $cat_name; ?></a></p>
-                    <h5 class="mb-0"><a class="text-dark" href="show-post.php?p_id=<?php echo $row['post_id']; ?>"><?php echo $row['post_title']; ?></a></h5>
+                    <h5 class="mb-0"><a class="text-dark" href="post.php?p_id=<?php echo $row['post_id']; ?>"><?php echo $row['post_title']; ?></a></h5>
 
                     <time class="timeago float " datetime="<?php echo $row['post_time']; ?>"></time>
                   </div>
@@ -82,7 +82,7 @@
       <div class="row gap-y align-items-center">
 
         <div class="col-6 col-lg-3">
-          <a href="../index.html"><img src="assets/img/logo-dark.png" alt="logo"></a>
+          <a href="../index.html"><img src="/codeBlog/assets/img/logo-dark.png" alt="logo"></a>
         </div>
 
         <div class="col-6 col-lg-3 text-right order-lg-last">
@@ -110,9 +110,9 @@
 
 
   <!-- Scripts -->
-  <script src="assets/js/page.min.js"></script>
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/jquery.timeago.js" type="text/javascript"></script>
+  <script src="/codeBlog/assets/js/page.min.js"></script>
+  <script src="/codeBlog/assets/js/script.js"></script>
+  <script src="/codeBlog/assets/js/jquery.timeago.js" type="text/javascript"></script>
 
   <script type="text/javascript">
    jQuery(document).ready(function() {

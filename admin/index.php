@@ -51,7 +51,7 @@
                 <div class="progress-details d-flex align-items-end justify-content-between">
                   <div class="title">
 
-                    <div class="icon"><i class="icon-page"></i></div><strong> Total Posts  2</strong> <strong> Active Posts</strong>
+                    <div class="icon"><i class="icon-page"></i></div><strong> Total Posts  <?php echo $total_posts; ?></strong> <strong> Active Posts</strong>
                   </div>
 
                   <div class="number dashtext-2"><?php echo $total_posts_active; ?></div>

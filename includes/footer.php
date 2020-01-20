@@ -5,7 +5,7 @@
         <div class="row gap-y align-items-center">
 
           <div class="col-6 col-lg-3">
-            <a href="../index.html"><img src="assets/img/logo-dark.png" alt="logo"></a>
+            <a href="../index.html"><img src="/codeBlog/assets/img/logo-dark.png" alt="logo"></a>
           </div>
 
           <div class="col-6 col-lg-3 text-right order-lg-last">
@@ -33,8 +33,8 @@
 
 
     <!-- Scripts -->
-    <script src="../assets/js/page.min.js"></script>
-    <script src="../assets/js/script.js"></script>
+    <script src="../codeBlog/assets/js/page.min.js"></script>
+    <script src="../codeBlog/assets/js/script.js"></script>
 
   </body>
 </html>

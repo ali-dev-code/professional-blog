@@ -56,7 +56,7 @@
                   ?>
             <div class="col-md-6">
               <div class="card border hover-shadow-6 mb-6 d-block">
-                <a href="show-post.php?p_id=<?php echo $row['post_id']; ?>"><img class="card-img-top"
+                <a href="post/<?php echo $row['post_id']; ?>"><img class="card-img-top"
                     src="assets/img/thumb/<?php echo $row['post_image']; ?>" alt="Card image cap"></a>
                 <div class="p-6 text-center">
 
@@ -74,7 +74,7 @@
 
                   <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#"><?php echo $cat_name; ?></a></p>
                   <h5 class="mb-0"><a class="text-dark"
-                      href="show-post.php?p_id=<?php echo $row['post_id']; ?>"><?php echo $row['post_title']; ?></a></h5>
+                      href="post.php?p_id=<?php echo $row['post_id']; ?>"><?php echo $row['post_title']; ?></a></h5>
 
                   <time class="timeago float " datetime="<?php echo $row['post_time']; ?>"></time>
                 </div>

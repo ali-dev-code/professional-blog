@@ -44,7 +44,7 @@
                             $post_name = $row2['post_title'];
 
                             ?>
-            <td>  <a href="../show-post.php?p_id=<?php echo $row['comment_post_id'] ?>"><?php echo substr($post_name,0,12); ?></a>  </td>
+            <td>  <a href="../post.php?p_id=<?php echo $row['comment_post_id'] ?>"><?php echo substr($post_name,0,12); ?></a>  </td>
 
             <td> <time class="timeago float " datetime="<?php echo $row['comment_time']; ?>"></time> </td>
 

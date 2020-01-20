@@ -10,12 +10,12 @@
   <title>CodeTheWeb</title>
 
   <!-- Styles -->
-  <link href="assets/css/page.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="/codeBlog/assets/css/page.min.css" rel="stylesheet">
+    <link href="/codeBlog/assets/css/style.css" rel="stylesheet">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="/codeBlog/assets/img/apple-touch-icon.png">
+  <link rel="icon" href="/codeBlog/assets/img/favicon.png">
   <style>
 
   body{
@@ -33,7 +33,7 @@
     <div class="container">
 
       <div class="navbar-left">
-        <a class="navbar-brand text-white font-weight-900 text-uppercase" href="index.php">
+        <a class="navbar-brand text-white font-weight-900 text-uppercase" href="/codeBlog/index">
           <!-- <img class="logo-dark" src="assets/img/logo-dark.png" alt="logo">
              <img class="logo-light" src="assets/img/logo-light.png" alt="logo">
             -->
@@ -72,7 +72,7 @@ if (isset($_GET['p_id'])) {
   </div>
 
   <!-- Header -->
-  <header class="header text-white h-fullscreen pb-80" style="background-image: url(assets/img/thumb/<?php echo $post_image; ?>);"
+  <header class="header text-white h-fullscreen pb-80" style="background-image: url(/codeBlog/assets/img/thumb/<?php echo $post_image; ?>);"
     data-overlay="9">
     <div class="container text-center">
 
@@ -83,7 +83,7 @@ if (isset($_GET['p_id'])) {
           <p class="opacity-70 text-uppercase small ls-1">Product</p>
           <h1 class="display-4 mt-7 mb-8"><?php echo $post_title; ?></h1>
           <p><span class="opacity-70 mr-1">By</span> <a class="text-white" href="#"><?php echo $post_author; ?></a></p>
-          <p><img class="avatar avatar-sm" src="assets/img/avatar/2.jpg" alt="..."></p>
+          <p><img class="avatar avatar-sm" src="/codeBlog/assets/img/avatar/2.jpg" alt="..."></p>
 
         </div>
 
@@ -152,7 +152,7 @@ while($row = fetch_array($execute_com)) {
 ?>
             <div class="media-list">
               <div class="media">
-                <img class="avatar avatar-sm mr-4" src="assets/img/avatar/1.jpg" alt="...">
+                <img class="avatar avatar-sm mr-4" src="/codeBlog/assets/img/avatar/1.jpg" alt="...">
 
                 <div class="media-body">
                   <div class="small-1">

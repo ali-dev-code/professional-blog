@@ -103,25 +103,25 @@ function add_comment()
         }
 
         if (!empty($errors)) {
-        foreach ($errors as$error) {
-         echo validation_errors($error);
-        }
-        }else {
-          $sql = " INSERT INTO comments (comment_post_id,comment_author,comment_email,comment_content,comment_status)  ";
-          $sql .= " VALUES('$post_id_from_url','$c_author','$c_email', '$c_content', 1) ";
-          $execute = query($sql);
-          confirm($execute);
+            foreach ($errors as$error) {
+                echo validation_errors($error);
+            }
+        } else {
+            $sql = ' INSERT INTO comments (comment_post_id,comment_author,comment_email,comment_content,comment_status)  ';
+            $sql .= " VALUES('$post_id_from_url','$c_author','$c_email', '$c_content', 1) ";
+            $execute = query($sql);
+            confirm($execute);
 
-          // add increment every time when we comment on post. field comment count in post table
+            // add increment every time when we comment on post. field comment count in post table
 
-          $query = " UPDATE posts SET post_comment_count = post_comment_count + 1  WHERE post_id = '$post_id_from_url' ";
-          $executeQuery = query($query);
-          confirm($query);
+            $query = " UPDATE posts SET post_comment_count = post_comment_count + 1  WHERE post_id = '$post_id_from_url' ";
+            $executeQuery = query($query);
+            confirm($query);
 
-          if ($execute) {
-           $_SESSION['success'] = "Comment has been submited successfully";
-           Redirect_to("show-post.php?p_id={$post_id_from_url}");
-          }
+            if ($execute) {
+                $_SESSION['success'] = 'Comment has been submited successfully';
+                Redirect_to("post.php?p_id={$post_id_from_url}");
+            }
         }
     }
 }
@@ -175,8 +175,6 @@ function c_ap()
         }
     }
 }
-
-
 
 //***************** Admin Panel ************************/
 
@@ -292,7 +290,6 @@ function add_post()
 
         $post_tags = strtoupper(escape($_POST['post_tags']));
         $post_date = date('d-m-y');
-
 
         // For image
 
@@ -441,44 +438,37 @@ function update_post()
     }
 }
 
-
 // add user
 
 function add_user()
 {
     if (isset($_POST['add-user'])) {
-
-
         $u_fname = escape($_POST['f_name']);
         $u_lname = escape($_POST['l_name']);
-         $u_role = escape($_POST['u_role']);
-         $u_name = escape($_POST['u_name']);
-         $u_mail = escape($_POST['u_mail']);
-         $u_pass = escape($_POST['u_pass']);
-
+        $u_role = escape($_POST['u_role']);
+        $u_name = escape($_POST['u_name']);
+        $u_mail = escape($_POST['u_mail']);
+        $u_pass = escape($_POST['u_pass']);
 
         $post_date = date('d-m-y');
 
-
         // For image
-/**
-        $image_name = $_FILES['post_image']['name']; // file name
-        $image_tmp_name = $_FILES['post_image']['tmp_name']; // file temp name in srver
-        $image_size = $_FILES['post_image']['size']; // file size
+        /**
+                $image_name = $_FILES['post_image']['name']; // file name
+                $image_tmp_name = $_FILES['post_image']['tmp_name']; // file temp name in srver
+                $image_size = $_FILES['post_image']['size']; // file size
 
-        $image_ext = explode('.', $image_name); // we get two parts here first name and second extention
+                $image_ext = explode('.', $image_name); // we get two parts here first name and second extention
 
-        $image_actual_ext = strtolower(end($image_ext)); // yaha pr hm second part len gy array se end function se.. extenion.
+                $image_actual_ext = strtolower(end($image_ext)); // yaha pr hm second part len gy array se end function se.. extenion.
 
-        $allowed_files = ['jpg', 'jpeg', 'png', 'pdf'];
-*/
+                $allowed_files = ['jpg', 'jpeg', 'png', 'pdf'];
+        */
         $errors = [];
 
         if (empty($u_fname) || empty($u_lname) || empty($u_role) || empty($u_name) || empty($u_mail) || empty($u_pass)) {
             $errors[] = 'all fields are required';
         }
-
-
 
         if (!empty($errors)) {
             foreach ($errors as $error) {
@@ -490,7 +480,6 @@ function add_user()
             $executeSql = query($sql);
             confirm($executeSql);
             if ($executeSql) {
-
                 $_SESSION['success'] = 'user has been Added successfully';
                 Redirect_to('users.php');
             }
@@ -546,162 +535,135 @@ function u_role_sub()
 }
 
 // update user
-function update_user() {
-  if (isset($_POST['up-user'])) {
-     $user_id = $_GET['edit'];
-     $u_fname = escape($_POST['f_name']);
-     $u_lname = escape($_POST['l_name']);
-     $u_role = escape($_POST['u_role']);
-     $u_name = escape($_POST['u_name']);
-     $u_mail = escape($_POST['u_mail']);
-     $u_pass = escape($_POST['u_pass']);
-     $errors = [];
+function update_user()
+{
+    if (isset($_POST['up-user'])) {
+        $user_id = $_GET['edit'];
+        $u_fname = escape($_POST['f_name']);
+        $u_lname = escape($_POST['l_name']);
+        $u_role = escape($_POST['u_role']);
+        $u_name = escape($_POST['u_name']);
+        $u_mail = escape($_POST['u_mail']);
+        $u_pass = escape($_POST['u_pass']);
+        $errors = [];
 
-     if (empty($u_fname) || empty($u_lname) || empty($u_role) || empty($u_name) || empty($u_mail) || empty($u_pass)) {
-         $errors[] = 'all fields are required';
-     }
-     if (!empty($errors)) {
-      foreach ($errors as $error) {
-          echo validation_errors($error);
-      }
-  } else {
-
-      $sql = " UPDATE users SET u_username = '$u_name' , u_password = '$u_pass' , u_fname = '$u_fname', u_lname ='$u_lname', u_email='$u_mail', u_role='$u_role'  ";
-      $sql .= " WHERE u_id = $user_id ";
-      $executeSql = query($sql);
-      confirm($executeSql);
-      if ($executeSql) {
-
-          $_SESSION['success'] = 'user has been updated successfully';
-          Redirect_to('users.php');
-      }
-  }
-
-
-  }
-
-
-  }
-
+        if (empty($u_fname) || empty($u_lname) || empty($u_role) || empty($u_name) || empty($u_mail) || empty($u_pass)) {
+            $errors[] = 'all fields are required';
+        }
+        if (!empty($errors)) {
+            foreach ($errors as $error) {
+                echo validation_errors($error);
+            }
+        } else {
+            $sql = " UPDATE users SET u_username = '$u_name' , u_password = '$u_pass' , u_fname = '$u_fname', u_lname ='$u_lname', u_email='$u_mail', u_role='$u_role'  ";
+            $sql .= " WHERE u_id = $user_id ";
+            $executeSql = query($sql);
+            confirm($executeSql);
+            if ($executeSql) {
+                $_SESSION['success'] = 'user has been updated successfully';
+                Redirect_to('users.php');
+            }
+        }
+    }
+}
 
   // login admin and user
  $login_errors = [];
 
- function user_login() {
-  global $login_errors;
+ function user_login()
+ {
+     global $login_errors;
 
-    if (isset($_POST["login"])) {
+     if (isset($_POST['login'])) {
+         $userName = escape($_POST['username']);
+         $userPassword = escape($_POST['password']);
 
-     $userName = escape($_POST['username']);
-     $userPassword = escape($_POST['password']);
+         $sql = " SELECT * FROM users WHERE u_username = '$userName'  ";
 
-      $sql = " SELECT * FROM users WHERE u_username = '$userName'  ";
+         $result = query($sql);
 
-      $result = query($sql);
+         if ($row = fetch_array($result)) {
+             $db_u_username = $row['u_username'];
+             $db_u_password = $row['u_password'];
+             $db_u_fname = $row['u_fname'];
+             $db_u_lname = $row['u_lname'];
+             $db_u_role = $row['u_role'];
+             // end of while loop
+             if ($userPassword === $db_u_password) {
+                 $_SESSION['username'] = $db_u_username;
+                 $_SESSION['ufname'] = $db_u_fname;
+                 $_SESSION['ulname'] = $db_u_lname;
+                 $_SESSION['urole'] = $db_u_role;
 
-       if ($row = fetch_array($result)) {
-
-          $db_u_username = $row['u_username'];
-          $db_u_password = $row['u_password'];
-          $db_u_fname = $row['u_fname'];
-          $db_u_lname = $row['u_lname'];
-          $db_u_role = $row['u_role'];
-         // end of while loop
-          if ($userPassword === $db_u_password) {
-            $_SESSION['username'] =  $db_u_username;
-            $_SESSION['ufname'] =  $db_u_fname;
-            $_SESSION['ulname'] =  $db_u_lname;
-            $_SESSION['urole'] =  $db_u_role;
-
-            Redirect_to("panel");
-
-           } else  {
-
-            $login_errors['p'] = "Invalid Password";
-
-           }
-
-       } else {
-           $login_errors['u'] = 'Invalid Username';
-
-
-
-
-       } // end of else
-
-
-
-
-
-
-
-    } // end of if isset(login)
-
-  } // end of user login function
-
+                 Redirect_to('admin
+                 ');
+             } else {
+                 $login_errors['p'] = 'Invalid Password';
+             }
+         } else {
+             $login_errors['u'] = 'Invalid Username';
+         } // end of else
+     } // end of if isset(login)
+ } // end of user login function
 
  // if login
 
- function login(){
-   if (isset($_SESSION['username'])) {
-   return true;
-   }
+ function login()
+ {
+     if (isset($_SESSION['username'])) {
+         return true;
+     }
  }
 
 // restirction login
 
-function confirm_login(){
-  if (!login()) {
-  Redirect_to("../login.php");
-  }
+function confirm_login()
+{
+    if (!login()) {
+        Redirect_to('../login.php');
+    }
 }
 
 // confrim login_admin
-function confirm_admin() {
-
-if (isset($_SESSION['urole'])) {
-if ($_SESSION['urole']  !== 'admin') {
-$_SESSION['error'] = "you are not admin dear xD";
-Redirect_to('../index.php');
-}
-}
-
+function confirm_admin()
+{
+    if (isset($_SESSION['urole'])) {
+        if ($_SESSION['urole'] !== 'admin') {
+            $_SESSION['error'] = 'you are not admin dear xD';
+            Redirect_to('../index.php');
+        }
+    }
 }
 
 // update user
-function update_profile() {
-  if (isset($_POST['up-profile'])) {
-     $userName = $_SESSION['username'];
-     $u_fname = escape($_POST['f_name']);
-     $u_lname = escape($_POST['l_name']);
-     $u_role = escape($_POST['u_role']);
-     $u_name = escape($_POST['u_name']);
-     $u_mail = escape($_POST['u_mail']);
-     $u_pass = escape($_POST['u_pass']);
-     $errors = [];
+function update_profile()
+{
+    if (isset($_POST['up-profile'])) {
+        $userName = $_SESSION['username'];
+        $u_fname = escape($_POST['f_name']);
+        $u_lname = escape($_POST['l_name']);
+        $u_role = escape($_POST['u_role']);
+        $u_name = escape($_POST['u_name']);
+        $u_mail = escape($_POST['u_mail']);
+        $u_pass = escape($_POST['u_pass']);
+        $errors = [];
 
-     if (empty($u_fname) || empty($u_lname) || empty($u_role) || empty($u_name) || empty($u_mail) || empty($u_pass)) {
-         $errors[] = 'all fields are required';
-     }
-     if (!empty($errors)) {
-      foreach ($errors as $error) {
-          echo validation_errors($error);
-      }
-  } else {
-
-      $sql = " UPDATE users SET u_username = '$u_name' , u_password = '$u_pass' , u_fname = '$u_fname', u_lname ='$u_lname', u_email='$u_mail', u_role='$u_role'  ";
-      $sql .= " WHERE u_username = '{$userName}' ";
-      $executeSql = query($sql);
-      confirm($executeSql);
-      if ($executeSql) {
-
-          $_SESSION['success'] = 'user has been updated successfully';
-          Redirect_to('profile.php');
-      }
-  }
-
-
-  }
-
-
-  }
+        if (empty($u_fname) || empty($u_lname) || empty($u_role) || empty($u_name) || empty($u_mail) || empty($u_pass)) {
+            $errors[] = 'all fields are required';
+        }
+        if (!empty($errors)) {
+            foreach ($errors as $error) {
+                echo validation_errors($error);
+            }
+        } else {
+            $sql = " UPDATE users SET u_username = '$u_name' , u_password = '$u_pass' , u_fname = '$u_fname', u_lname ='$u_lname', u_email='$u_mail', u_role='$u_role'  ";
+            $sql .= " WHERE u_username = '{$userName}' ";
+            $executeSql = query($sql);
+            confirm($executeSql);
+            if ($executeSql) {
+                $_SESSION['success'] = 'user has been updated successfully';
+                Redirect_to('profile.php');
+            }
+        }
+    }
+}
