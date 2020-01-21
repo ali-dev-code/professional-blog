@@ -1,5 +1,10 @@
-<?php require_once 'config/init.php'; ?>
+<?php require_once '../config/init.php'; ?>
 <?php confirm_login();   ?>
+<?php
+
+users_online();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,6 +63,11 @@
           <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a>
           </div>
 
+          <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="#" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"> <i class="fa fa-globe" aria-hidden="true"></i> <span
+                class="badge dashbg-1"><?php echo users_online(); ?></span></a>
+
+          </div>
           <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="#" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"> <i class="fa fa-bell-o" aria-hidden="true"></i> <span
                 class="badge dashbg-1">5</span></a>

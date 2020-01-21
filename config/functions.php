@@ -667,3 +667,39 @@ function update_profile()
         }
     }
 }
+
+
+// function users online
+
+function users_online() {
+
+  $session = session_id(); // this function is gonaa take id of ever user logiged in sesion
+  $time = time();
+  $time_out_in_seconds = 60;
+  $time_out = $time - $time_out_in_seconds;
+
+  $sql = "SELECT * FROM users_online WHERE session = '$session' ";
+  $result = query($sql);
+  confirm($result);
+  $count_u = row_count($result);
+
+  if ($count_u == NULL) {
+
+   $sql_u_o = "INSERT INTO users_online(session, time) VALUES('$session', '$time') ";
+   $execute = query($sql_u_o);
+   confirm($execute);
+
+
+  }else {
+    $qu = "UPDATE users_online SET time = '$time' WHERE session = '$session'";
+    $execute_qu = query($qu);
+    confirm($execute_qu);
+  }
+
+  $users_online = "SELECT * FROM users_online WHERE time > '$time_out' " ;
+  $execute_uers_online = query($users_online);
+  confirm($execute_uers_online);
+  return $total_users_online = row_count($execute_uers_online);
+
+
+}

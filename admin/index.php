@@ -1,5 +1,6 @@
 <?php require_once 'includes/admin-header.php'; ?>
 
+
   <!-- end of header-->
 
   <div class="d-flex align-items-stretch">
@@ -11,6 +12,7 @@
       <div class="page-header">
         <div class="container-fluid">
           <h2 class="h5 no-margin-bottom">Dashboard</h2>
+
         </div>
       </div>
       <section class="no-padding-top no-padding-bottom">
@@ -24,6 +26,7 @@
               $total_usrs = row_count($result_usr_sql);
 
               ?>
+
               <div class="statistic-block block">
                 <div class="progress-details d-flex align-items-end justify-content-between">
                   <div class="title">
