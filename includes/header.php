@@ -61,7 +61,7 @@
           </ul>
         </section>
 
-        <a class="btn btn-xs btn-round btn-success" href="login1.php">Admin</a>
+        <a class="btn btn-xs btn-round btn-success" href="login.php">Admin</a>
 
       </div>
     </nav><!-- /.navbar -->
