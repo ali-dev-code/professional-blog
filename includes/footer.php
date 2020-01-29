@@ -33,8 +33,8 @@
 
 
     <!-- Scripts -->
-    <script src="../codeBlog/assets/js/page.min.js"></script>
-    <script src="../codeBlog/assets/js/script.js"></script>
+    <script src="/codeBlog/assets/js/page.min.js"></script>
+    <script src="/codeBlog/assets/js/script.js"></script>
 
   </body>
 </html>

@@ -62,6 +62,7 @@
 
                   <?php
 
+
                       $find_cat_name = " SELECT * FROM categories WHERE cat_id = '$post_cat_id' ";
                       $execute_cat_name = query($find_cat_name);
                       confirm($execute_cat_name);
